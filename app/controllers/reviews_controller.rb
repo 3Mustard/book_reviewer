@@ -7,7 +7,7 @@ class ReviewsController < ApplicationController
 
     def create 
         @review = Review.new(review_params)
-        
+
         if @review.valid? 
             @review.save 
             redirect_to @review 
@@ -18,6 +18,19 @@ class ReviewsController < ApplicationController
 
     def show 
         current_review
+    end 
+
+    def edit
+        current_review 
+    end 
+
+    def update
+        current_review
+        if @review.update(review_params)
+            redirect_to @review
+        else 
+            render :edit 
+        end 
     end 
 
     private 

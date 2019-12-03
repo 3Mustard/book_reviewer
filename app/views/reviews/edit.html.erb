@@ -1,0 +1,10 @@
+form to edit review 
+<%= form_for @review do |f| %> 
+    <%= f.label :rating, "rate 1-10" %>  
+    <%= f.text_field :rating %> 
+    
+    <%= f.label :content %>
+    <%= f.text_field :content %> 
+
+    <%= f.submit %> 
+<%end%>
