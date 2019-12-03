@@ -1,4 +1,5 @@
 log in!
+<%= flash[:error] %> 
 <%= form_for(:user) do |f| %>
     <%= f.label :username %>
     <%= f.text_field :username %>

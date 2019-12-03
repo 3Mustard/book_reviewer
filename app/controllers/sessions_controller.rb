@@ -7,11 +7,13 @@ class SessionsController < ActionController::Base
     end 
 
     def create 
-        @user = User.find_by(username: params[:username])
-        
-        if @user.try(:authenticate, (params[:user][:password])
+        #binding.pry
+        @user = User.find_by(username: params[:user][:username])
+        #raise @user.inspect
+        if @user && @user.authenticate(password: params[:user][:password])
+            binding.pry
             session[:user_id] = @user.id
-            redirect_to @user  
+            redirect_to user_path(@user)
         else 
             flash[:error] = "Sorry, login info was incorrect. Please try again."
             redirect_to login_path
