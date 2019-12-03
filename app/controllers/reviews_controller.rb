@@ -2,7 +2,7 @@ class ReviewsController < ApplicationController
 
     def new
         @review = Review.new 
-        #build book variable?  
+        @review.build_book  
     end 
 
     def create 
@@ -40,7 +40,7 @@ class ReviewsController < ApplicationController
     end
 
     def review_params
-        params.require(:review).permit(:rating, :content)
+        params.require(:review).permit(:rating, :content, book_attributes: [:title,:author])
     end 
 
 end

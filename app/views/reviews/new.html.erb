@@ -1,6 +1,11 @@
 form for new review 
 
 <%= form_for @review do |f| %> 
+    <%= f.fields_for :book do |b| %>
+        <%= b.label :title %>
+        <%= b.text_field :title 
+    <%end%> 
+
     <%= f.label :rating, "rate 1-10" %>  
     <%= f.text_field :rating %> 
     
