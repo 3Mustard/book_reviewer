@@ -1,3 +1,11 @@
 Sing up 
 
-<%= form_form @user do |f| %>
+<%= form_for @user do |f| %>
+    <%= f.label :username %>
+    <%= f.text_field :username %>
+
+    <%= f.label :password %> 
+    <%= f.password_field :password %>
+
+    <%= f.submit "Sing Up!" %> 
+<%end%>

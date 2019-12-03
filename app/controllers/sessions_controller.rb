@@ -2,7 +2,7 @@ class SessionsController < ActionController::Base
 
     def home 
     end 
-    
+
     def new
         @user = User.new  
     end 
@@ -13,5 +13,6 @@ class SessionsController < ActionController::Base
     end 
 
     def destroy 
+        
     end 
 end
