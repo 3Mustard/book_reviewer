@@ -9,9 +9,12 @@ Rails.application.routes.draw do
   post '/signup' => 'users#create'
   delete '/logout' => 'sessions#destroy'
   
-  #resources
-  resources :comments
-  resources :books
+  ##resources
+
+  #needed for path book/review/new or edit 
+  resources :books do 
+    resources :reviews, only: [:new,:edit]
+  end  
   resources :reviews
   resources :users
 end
