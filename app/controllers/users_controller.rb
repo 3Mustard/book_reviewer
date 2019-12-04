@@ -9,13 +9,14 @@ class UsersController < ApplicationController
         if @user.valid?
             @user.save 
             session[:user_id] = @user.id 
-            redirect_to @user 
+            redirect_to books_path
         else 
             render :new 
         end 
     end 
 
     def show
+        current_user
     end 
 
     private 

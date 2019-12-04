@@ -5,7 +5,10 @@ rating <%= @review.rating %>
 
 link to go back to user page 
 
-link to edit / delete 
-<%= link_to "Edit review", edit_review_path(@review) %> 
+link to edit 
+<%= link_to "Edit review", edit_book_path(@review.book) %> 
+
+link to delete
 
 link to book show page 
+<%= link_to "View book page", book_path(@review.book) %> 

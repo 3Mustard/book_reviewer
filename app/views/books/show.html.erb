@@ -1,9 +1,15 @@
 book show page
 <%= @book.title %> 
 <%= @book.author %>
+<%= link_to "view your review", book_review_path(@book) %>
+<%= link_to "view all reviews", review_path %>
 
 link to add a comment 
+<%= link_to "Add a comment", new_comment_path(@book) %>
 
 list of comments
-
-
+<%= @book.comments.all do |comment| %> 
+    <%= comment.content %> 
+    posted by:
+    <%= comment.user.username %>     
+<%end%>
