@@ -3,10 +3,10 @@ class BooksController < ApplicationController
     def index 
         
     end 
-
+    #associate this review to the current user
     def new
         @book = Book.new 
-        @book.build_review  
+        @book.build_review 
     end 
 
     def create 
@@ -44,7 +44,7 @@ class BooksController < ApplicationController
     end
 
     def book_params
-        params.require(:book).permit(:rating, :content, review_attributes: [:rating,:content])
+        params.require(:book).permit(:author, :title, :genre, review_attributes: [:rating,:content,:user_id])
     end 
 
 end
