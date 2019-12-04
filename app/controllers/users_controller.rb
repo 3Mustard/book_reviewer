@@ -9,7 +9,7 @@ class UsersController < ApplicationController
         if @user.valid?
             @user.save 
             session[:user_id] = @user.id 
-            redirect_to books_path
+            redirect_to reviews_path
         else 
             render :new 
         end 

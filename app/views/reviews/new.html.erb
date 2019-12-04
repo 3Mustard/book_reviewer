@@ -1,0 +1,15 @@
+<%= form_for @book do |f| %> 
+    need an option to select from book.all or create new book object.
+    <%= b.label :title %>
+    <%= b.text_field :title %>
+    
+    <%= f.fields_for :review do |r| %>
+        <%= r.label :rating, "rate 1-10" %>  
+        <%= r.text_field :rating %> 
+    
+        <%= r.label :content %>
+        <%= r.text_field :content %> 
+    <%end%>
+
+    <%= f.submit %> 
+<%end%>
