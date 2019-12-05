@@ -12,7 +12,7 @@ class SessionsController < ActionController::Base
         #raise @user.inspect
         if @user && @user.authenticate(params[:user][:password])
             session[:user_id] = @user.id
-            redirect_to reviews_path
+            redirect_to books_path
         else 
             flash[:error] = "Sorry, login info was incorrect. Please try again."
             redirect_to login_path

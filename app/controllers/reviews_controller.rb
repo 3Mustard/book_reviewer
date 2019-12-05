@@ -1,38 +1,37 @@
 class ReviewsController < ApplicationController
 
     def index 
-        #to get all the books corresponding to the books a user has reviewed on the homepage i will need  to do
-        # current_user.review
+        @reviews = Review.all 
     end 
     #associate this review to the current user
     def new
-        @book = Book.new 
-        @book.build_review 
+        @review = Review.new 
+        @review.build_book 
     end 
 
     def create 
-        @book = Book.new(book_params)
+        @review = review.new(review_params)
 
-        if @book.valid? 
-            @book.save 
-            redirect_to book_review_path(@book)
+        if @review.valid? 
+            @review.save 
+            redirect_to review_review_path(@review)
         else 
             render :new 
         end 
     end 
 
     def show 
-        current_book
+        current_review
     end 
 
     def edit
-        current_book 
+        current_review 
     end 
 
     def update
-        current_book
-        if @book.update(book_params)
-            redirect_to @book
+        current_review
+        if @review.update(review_params)
+            redirect_to @review
         else 
             render :edit 
         end 
@@ -40,11 +39,11 @@ class ReviewsController < ApplicationController
 
     private 
 
-    def current_book 
-        @book = Book.find(params[:id])
+    def current_review 
+        @review = review.find(params[:id])
     end
 
-    def book_params
-        params.require(:book).permit(:author, :title, :genre, review_attributes: [:rating,:content,:user_id])
+    def review_params
+        params.require(:review).permit(:rating, :content, book_attributes: [:author,:title,:genre])
     end 
 end
