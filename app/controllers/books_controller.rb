@@ -1,5 +1,4 @@
 class BooksController < ApplicationController
-    helper_method :current_user
 
     def index 
         #handles a get request from the index view to return a book object by name
@@ -34,4 +33,8 @@ class BooksController < ApplicationController
     def book_params 
         params.require(:book).permit(:title, :genre, :author_id, :author_attributes)
     end 
+  
+    def current_user
+        user = User.find(session[:user_id])
+    end
 end

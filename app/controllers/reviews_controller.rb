@@ -39,6 +39,10 @@ class ReviewsController < ApplicationController
 
     private 
 
+    def current_user
+        user = User.find(session[:user_id])
+    end
+    
     def current_review 
         @review = review.find(params[:id])
     end
