@@ -4,12 +4,17 @@ class ReviewsController < ApplicationController
         @reviews = Review.all 
     end 
 
+    def show 
+        current_review
+    end 
+
     def new
         @book = Book.find(params[:book_id])
         @review = @book.reviews.build
     end 
 
     def create 
+        raise params.inspect
         #create a review with a book_id for the current user 
         @review = current_user.reviews.build(review_params)
 
@@ -21,10 +26,6 @@ class ReviewsController < ApplicationController
         end 
     end 
 
-    def show 
-        current_review
-    end 
-
     def edit
         current_review 
     end 
@@ -32,7 +33,7 @@ class ReviewsController < ApplicationController
     def update
         current_review
         if @review.update(review_params)
-            redirect_to @review
+            redirect_to book_path(@review.book_id)
         else 
             render :edit 
         end 
@@ -41,7 +42,7 @@ class ReviewsController < ApplicationController
     private 
 
     def current_review 
-        @review = review.find(params[:id])
+        @review = Review.find(params[:id])
     end
 
     def review_params
