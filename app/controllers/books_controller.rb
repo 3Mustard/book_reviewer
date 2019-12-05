@@ -1,4 +1,5 @@
 class BooksController < ApplicationController
+    helper_method :current_user
 
     def index 
         #handles a get request from the index view to return a book object by name
@@ -9,6 +10,7 @@ class BooksController < ApplicationController
 
     def show
         @book = Book.find(params[:id])
+        @review = @book.current_users_review(current_user.id)
     end 
 
     def new 
