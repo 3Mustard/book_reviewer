@@ -9,12 +9,12 @@ class ReviewsController < ApplicationController
         @review = @book.reviews.build
     end 
 
-    def create #pass :book_id from new form to the create 
+    def create #need to pass :book_id from new form to the create method here to tie a user to a book
         @review = current_user.reviews.build(review_params)
 
         if @review.valid? 
             @review.save 
-            redirect_to show_book_path(@review.book) #not sure if this works
+            redirect_to show_book_path(@review.book_id) #not sure @review.book_id will render the show book path i want
         else 
             render :new 
         end 
