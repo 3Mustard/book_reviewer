@@ -1,2 +1,11 @@
-show page for <%= @book.title %>
+show page for <%= @book.title %><br>
+<%= review = current_users_review(@book_id) %> nil if no review?
+gtit
+    <% if review != nil %>
+        <%= review.rating %>
+        <%= review.content %>
+    <%else%>
+        <%= link_to "Write a review", new_review_path(@book) %>
+    <%end%>
+
 <%= link_to "<< back to index", books_path %>

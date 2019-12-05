@@ -3,18 +3,18 @@ class ReviewsController < ApplicationController
     def index 
         @reviews = Review.all 
     end 
-    #associate this review to the current user
+
     def new
-        @review = Review.new 
-        @review.build_book 
+        @book = Book.find_by_id(params[:book_id])
+        @review = @book.reviews.build
     end 
 
-    def create 
-        @review = review.new(review_params)
+    def create #pass :book_id from new form to the create 
+        @review = current_user.reviews.build(review_params)
 
         if @review.valid? 
             @review.save 
-            redirect_to review_review_path(@review)
+            redirect_to show_book_path(@review.book) #not sure if this works
         else 
             render :new 
         end 
@@ -44,6 +44,6 @@ class ReviewsController < ApplicationController
     end
 
     def review_params
-        params.require(:review).permit(:rating, :content, book_attributes: [:author,:title,:genre])
+        params.require(:review).permit(:rating, :content, :book_id, book_attributes: [:author,:title,:genre])
     end 
 end
