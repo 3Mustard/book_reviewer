@@ -1,4 +1,8 @@
 class Book < ApplicationRecord
-    has_many :reviews
-    has_many :users, through: :reviews 
+    belongs_to :author # author class has_many books and gets author.books book needs author_id in migrations
+    has_many :reviews #book.reviews
+    has_many :users, through: :reviews #book.users??
+
+    #validations
+    validates :title, uniqueness: true, presence: true 
 end
