@@ -7,7 +7,7 @@ welcome back, <%= current_user.username %><br>
     <%= submit_tag 'Search', name: nil %>
 <% end %>
 <% if @book %>
-    <p> - <%= @book.title %> </p>   
+    <h4> - <%= link_to "#{@book.title}", @book %> </h4>   
 <%end%>
 
 <h3>Can't find the book you're looking for?</h3>
