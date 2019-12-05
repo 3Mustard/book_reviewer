@@ -33,8 +33,4 @@ class BooksController < ApplicationController
     def book_params 
         params.require(:book).permit(:title, :genre, :author_id, :author_attributes)
     end 
-  
-    def current_user
-        user = User.find(session[:user_id])
-    end
 end

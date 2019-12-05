@@ -9,12 +9,13 @@ class ReviewsController < ApplicationController
         @review = @book.reviews.build
     end 
 
-    def create #need to pass :book_id from new form to the create method here to tie a user to a book
+    def create 
+        #create a review with a book_id for the current user 
         @review = current_user.reviews.build(review_params)
 
         if @review.valid? 
             @review.save 
-            redirect_to show_book_path(@review.book_id) #not sure @review.book_id will render the show book path i want
+            redirect_to book_path(@review.book_id)
         else 
             render :new 
         end 
@@ -39,15 +40,11 @@ class ReviewsController < ApplicationController
 
     private 
 
-    def current_user
-        user = User.find(session[:user_id])
-    end
-    
     def current_review 
         @review = review.find(params[:id])
     end
 
     def review_params
-        params.require(:review).permit(:rating, :content, :book_id, book_attributes: [:author,:title,:genre])
+        params.require(:review).permit(:rating, :content, :book_id)
     end 
 end

@@ -1,8 +1,8 @@
 show page for <%= @book.title %><br>
 
 <% if @review != nil %>
-    <%= @review.rating %>
-    <%= @review.content %>
+    rating: <%= @review.rating %><br>
+    content: <%= @review.content %>
 <%else%>
     <%= link_to "Add a Review", new_book_review_path(@book) %> is not sending @book. 
 <%end%>
