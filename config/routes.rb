@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :authors
   #root path
   get '/' => 'sessions#home'
 
