@@ -1,12 +1,14 @@
 welcome back, <%= current_user.username %><br />
 link to see all my reviews 
 
-<%= form_tag('/search') do %>
-    <p>Search for a book by title isn't working yet so don't click 'Search'!</p> 
+<%= form_tag(books_path, method: :get) do %>
+    <p>Search for a book by title</p> 
     <%= text_field_tag :search, params[:search] %>
     <%= submit_tag 'Search', name: nil %>
 <% end %>
+<%= params[:search] %>
 <br />
+
 
 <h3>Can't find the book you're looking for?</h3>
 <h4>Submit a New Book to Review</h4>
