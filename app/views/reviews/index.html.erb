@@ -1,2 +1,6 @@
 these are all your reviews <%= current_user.username %><br>
+
+<%= current_user.reviews.each do |review| %>
+    <%= review.my_book(review.book_id).title %>
+<%end%>
 <%= link_to "<< back to index", books_path %>
