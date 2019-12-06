@@ -14,7 +14,6 @@ class ReviewsController < ApplicationController
     end 
 
     def create 
-        raise params.inspect
         #create a review with a book_id for the current user 
         @review = current_user.reviews.build(review_params)
 

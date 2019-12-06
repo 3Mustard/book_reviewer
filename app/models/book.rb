@@ -6,6 +6,9 @@ class Book < ApplicationRecord
     #validations
     validates :title, uniqueness: true, presence: true 
 
+    #nested resources
+    accepts_nested_attributes_for :author 
+
     #returns the users review for the book calling this method 
     def current_users_review(user_id)
         self.reviews.find_by(user_id: user_id)

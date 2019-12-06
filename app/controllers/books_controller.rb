@@ -20,8 +20,8 @@ class BooksController < ApplicationController
     def create 
         @book = Book.new(book_params)
         if @book.valid?
-            @book.save 
-            redirect_to @book 
+            @book.save
+            redirect_to @book
         else 
             flash[:error] = "something went wrong"
             redirect_to books_path 
@@ -31,6 +31,6 @@ class BooksController < ApplicationController
     private 
     
     def book_params 
-        params.require(:book).permit(:title, :genre, :author_id, :author_attributes)
+        params.require(:book).permit(:title, :genre, :author_id, :author_attributes => [:first_name, :last_name])
     end 
 end

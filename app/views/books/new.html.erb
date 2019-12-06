@@ -1,6 +1,36 @@
 new book form 
 
-list of authors to choose from
+<%= form_for(@book) do |f| %> 
+    <div>
+        <%= f.label :title %>
+        <%= f.text_field :title %> 
+    </div>
 
+    <div>
+        <%= f.label :genre %>
+        <%= f.text_field :genre %> 
+    </div>
+
+    <div>
+        <%= f.collection_select :author_id, Author.all, :id, :first_and_last_name, include_blank: "Select an author" %>
+    </div>
+
+    <p>Author not listed?</p>
+    <%= f.fields_for :author do |a| %>
+        <div>
+            <%= a.label :first_name %>
+            <%= a.text_field :first_name %>
+        </div> 
+
+        <div>
+            <%= a.label :last_name %>
+            <%= a.text_field :last_name %>
+        </div>    
+    <%end%>
+    <br>
+    <%= f.submit %>
+
+<%end%>
+<br>
 
 <%= link_to "<< back to index", books_path %>
