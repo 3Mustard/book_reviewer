@@ -9,8 +9,4 @@ class ApplicationController < ActionController::Base
     def current_user
         user = User.find(session[:user_id])
     end
-
-    def authors_first_and_last_name(author)
-        name = author.first_name + " " + author.last_name
-    end
 end
