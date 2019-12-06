@@ -1,6 +1,6 @@
 show page for <%= @book.title %><br>
 <% if @book.author != nil %>
-        by - <%= authors_first_and_last_name(@book.author) %><br>
+        by - <%= @book.author.authors_first_and_last_name %><br>
 <%end%>
 
 <% if @review != nil %>
