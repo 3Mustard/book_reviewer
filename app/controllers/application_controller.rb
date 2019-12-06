@@ -1,6 +1,5 @@
 class ApplicationController < ActionController::Base
-    helper_method :current_user 
-    helper_method :my_book
+    helper_method :current_user, :authors_first_and_last_name 
 
     def home 
     end 
@@ -11,8 +10,7 @@ class ApplicationController < ActionController::Base
         user = User.find(session[:user_id])
     end
 
-    #get book by reviews book_id
-    def my_book(book_id)
-        Book.find(book_id)
-    end 
+    def authors_first_and_last_name(author)
+        name = author.first_name + " " + author.last_name
+    end
 end
