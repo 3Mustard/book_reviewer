@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-    helper_method :current_user, :authors_first_and_last_name 
+    helper_method :current_user,
 
     def home 
     end 
