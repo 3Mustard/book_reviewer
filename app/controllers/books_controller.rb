@@ -9,7 +9,7 @@ class BooksController < ApplicationController
 
     def show
         @book = Book.find(params[:id])
-        @review = @book.current_users_review(current_user.id)
+        @review = @book.reviews.find_by(user_id: current_user.id)
     end 
 
     def new 
@@ -26,11 +26,11 @@ class BooksController < ApplicationController
             flash[:error] = "something went wrong"
             redirect_to books_path 
         end 
-    end 
+    end  
 
     private 
     
     def book_params 
-        params.require(:book).permit(:title, :genre, :author_id, :author_attributes => [:first_name, :last_name])
+        params.require(:book).permit(:title, :genre, :author_id, author_attributes: [:name])
     end 
 end

@@ -1,0 +1,7 @@
+author show page for <%= @author.name %><br>
+<%= @author.books.each do |book| %>
+    - <%= link_to book.title, book_path(book) %>     
+<%end%>
+
+
+

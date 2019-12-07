@@ -12,20 +12,15 @@ new book form
     </div>
 
     <div>
-        <%= f.collection_select :author_id, Author.all, :id, :first_and_last_name, include_blank: "Select an author" %>
+        <%= f.collection_select :author_id, Author.all, :id, :name, include_blank: "Select the author" %>
     </div>
 
     <p>Author not listed?</p>
     <%= f.fields_for :author do |a| %>
         <div>
-            <%= a.label :first_name %>
-            <%= a.text_field :first_name %>
-        </div> 
-
-        <div>
-            <%= a.label :last_name %>
-            <%= a.text_field :last_name %>
-        </div>    
+            <%= a.label :name %>
+            <%= a.text_field :name %>
+        </div>   
     <%end%>
     <br>
     <%= f.submit %>

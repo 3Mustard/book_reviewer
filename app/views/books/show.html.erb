@@ -1,6 +1,6 @@
 show page for <%= @book.title %><br>
 <% if @book.author != nil %>
-        by - <%= authors_first_and_last_name(@book.author) %><br>
+        by - <%= @book.author.name %><br>
 <%end%>
 
 <% if @review != nil %>
@@ -9,6 +9,8 @@ show page for <%= @book.title %><br>
     <%= link_to "Edit Review", edit_review_path(@review) %>
 <%else%>
     <%= link_to "Add a Review", new_book_review_path(@book) %>
-<%end%>
+<%end%><br>
+
+<%= link_to "Author", author_path(@book.author)
 <br>
 <%= link_to "<< back to index", books_path %>
