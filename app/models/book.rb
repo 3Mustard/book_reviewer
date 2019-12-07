@@ -8,4 +8,10 @@ class Book < ApplicationRecord
 
     #nested resources
     accepts_nested_attributes_for :author 
+
+    def author_attributes=(author_attributes)
+        if author_attributes[:name] != "" 
+            self.build_author(name: author_attributes[:name])
+        end 
+    end 
 end

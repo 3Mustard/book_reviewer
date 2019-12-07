@@ -11,6 +11,10 @@ show page for <%= @book.title %><br>
     <%= link_to "Add a Review", new_book_review_path(@book) %>
 <%end%><br>
 
-<%= link_to "Author", author_path(@book.author)
+<%= link_to "Author", author_path(@book.author) %>
 <br>
 <%= link_to "<< back to index", books_path %>
+
+
+
+<%= flash[:error] %>
