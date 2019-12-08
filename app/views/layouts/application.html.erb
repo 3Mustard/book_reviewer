@@ -9,11 +9,17 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
   
-  <div class="navbar">
-    <%= link_to 'Log Out', logout_path, method: :delete %>
-  </div>
-  
   <body>
-    <%= yield %>
+    <div class="all">
+
+      <div class="navbar">
+        <%= image_tag('book.jpg') %><br>
+        <%= link_to 'Log Out', logout_path, method: :delete %>
+        <%= render partial: 'reviews/reviews_link' %>
+      </div>
+
+      <%= yield %>
+      
+    </div>
   </body>
 </html>

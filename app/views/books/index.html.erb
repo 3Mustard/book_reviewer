@@ -1,5 +1,7 @@
-<p>welcome back, <%= current_user.username %></p><br>
-<%= link_to "view all reviews", reviews_path %>
+<p>welcome back, <%= current_user.username %></p>
+<p>Total reviews - <%= current_user.total_reviews %></p> 
+  <br>
+  <br>
 
 <%= render partial: 'search' %>
 

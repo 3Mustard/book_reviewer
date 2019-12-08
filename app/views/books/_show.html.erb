@@ -1,3 +1,4 @@
+<h3><%= @book.title %></h3><br>
 <% if @book.author != nil %>
         by - <%= link_to "#{@book.author.name}", author_path(@book.author) %><br>
 <%end%>
