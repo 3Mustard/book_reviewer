@@ -1,15 +1,4 @@
 <h3><%= @book.title %></h3><br>
-<% if @book.author != nil %>
-        by - <%= link_to "#{@book.author.name}", author_path(@book.author) %><br>
-<%end%>
-
-<% if @review != nil %>
-    rating: <%= @review.rating %><br>
-    <%= @review.content %><br>
-    <%= link_to "Edit Review", edit_review_path(@review) %>
-<%else%>
-    <%= link_to "Add a Review", new_book_review_path(@book) %>
-<%end%><br>
-
+<%= render partial: 'show' %>
 <br>
 <%= link_to "<< back to index", books_path %>
