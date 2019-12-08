@@ -1,4 +1,4 @@
-welcome back, <%= current_user.username %><br>
+<p>welcome back, <%= current_user.username %></p><br>
 <%= link_to "view all reviews", reviews_path %>
 
 <%= form_tag(books_path, method: :get) do %>
@@ -15,5 +15,4 @@ welcome back, <%= current_user.username %><br>
 <%end%>
 
 <h3>Can't find the book you're looking for?</h3>
-<h4>Submit a New Book to Review</h4>
-<%= link_to 'new book form', new_book_path %> 
+<%= link_to 'Add a book to the library', new_book_path %> 

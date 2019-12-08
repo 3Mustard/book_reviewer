@@ -1,21 +1,22 @@
-new book form 
+<p>Add a new book to the library</p><br>
 
 <%= form_for(@book) do |f| %> 
     <div>
         <%= f.label :title %>
         <%= f.text_field :title %> 
     </div>
-
+    <br>
     <div>
         <%= f.label :genre %>
         <%= f.text_field :genre %> 
     </div>
-
+    <br>
     <div>
         <%= f.collection_select :author_id, Author.all, :id, :name, include_blank: "Select the author" %>
     </div>
 
-    <p>Author not listed?</p>
+    <p>Can't find the Author you're looking for?</p>
+    <p>Add an Author to our database.</p>
     <%= f.fields_for :author do |a| %>
         <div>
             <%= a.label :name %>

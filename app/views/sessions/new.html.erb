@@ -1,11 +1,17 @@
-log in!
+<p>Please login to continue</p><br>
 <%= flash[:error] %> 
-<%= form_for(:user) do |f| %>
-    <%= f.label :username %>
-    <%= f.text_field :username %>
-
-    <%= f.label :password %> 
-    <%= f.password_field :password %>
-
-    <%= f.submit "Login!" %> 
-<%end%>
+<div>
+    <%= form_for :user do |f| %>
+        <div>
+            <%= f.label :username %>
+            <%= f.text_field :username %>
+        </div>
+        <br>
+        <div>
+            <%= f.label :password %> 
+            <%= f.password_field :password %>
+        </div>
+        <br>
+        <%= f.submit "login!" %> 
+    <%end%>
+</div>
