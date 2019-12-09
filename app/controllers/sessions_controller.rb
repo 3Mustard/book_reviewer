@@ -7,15 +7,13 @@ class SessionsController < ActionController::Base
     end 
 
     def create 
-        binding.pry
         @user = User.find_by(username: params[:user][:username])
     
         if @user && @user.authenticate(params[:user][:password])
             session[:user_id] = @user.id
             redirect_to books_path
         else 
-            flash[:error] = "Sorry, login info was incorrect. Please try again."
-            redirect_to login_path
+            render :new 
         end
     end  
 
@@ -26,7 +24,7 @@ class SessionsController < ActionController::Base
 
     private 
 
-    def auth_hash
-        request.env['omniauth.auth']
-    end
+    # def auth_hash
+    #     request.env['omniauth.auth']
+    # end
 end

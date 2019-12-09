@@ -24,8 +24,8 @@ class BooksController < ApplicationController
             @book.save
             redirect_to @book
         else 
-            flash[:error] = "something went wrong"
-            redirect_to books_path 
+            @book.build_author
+            render :new 
         end 
     end  
 

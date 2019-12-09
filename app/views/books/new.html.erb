@@ -1,14 +1,25 @@
 <p>Add a new book to the library</p><br>
 
+<% if @book.errors.any? %>
+  <div id="error_explanation">
+    <h2>There were some errors:</h2>
+    <ul>
+      <% @book.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
 <%= form_for(@book) do |f| %> 
-    <div>
+    <div class="field<%= ' field_with_errors' if @book.errors[:name].any? %>">
         <%= f.label :title %>
-        <%= f.text_field :title %> 
+        <%= f.text_field :title, :value => @book.title %> 
     </div>
     <br>
-    <div>
+    <div class="field<%= ' field_with_errors' if @book.errors[:genre].any? %>">
         <%= f.label :genre %>
-        <%= f.text_field :genre %> 
+        <%= f.text_field :genre, :value => @book.genre %> 
     </div>
     <br>
     <div>
