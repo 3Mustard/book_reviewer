@@ -13,7 +13,8 @@ class SessionsController < ActionController::Base
             session[:user_id] = @user.id
             redirect_to books_path
         else 
-            render :new 
+            flash[:error] = "Username and password do not match."
+            render 'new'
         end
     end  
 

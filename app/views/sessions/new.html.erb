@@ -1,5 +1,5 @@
-<p>Please login to continue</p><br>
-
+<p>Please login to continue</p>
+<%= flash[:error] %>
 <div>
     <%= form_for :user do |f| %>
         <div>
@@ -14,4 +14,4 @@
         <br>
         <%= f.submit "Submit" %> 
     <%end%>
-</div>
+</div> 
