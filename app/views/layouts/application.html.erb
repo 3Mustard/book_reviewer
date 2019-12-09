@@ -14,8 +14,8 @@
     
       <div class="navbar">
         <%= image_tag('book.jpg') %><br>
-        <%= link_to 'Log Out', logout_path, method: :delete %>
         <% if session[:user_id] %>
+          <%= link_to 'Log Out', logout_path, method: :delete %>
           <%= link_to "Reviews", reviews_path  %>
         <%end%>
       </div>

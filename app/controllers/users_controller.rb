@@ -10,7 +10,7 @@ class UsersController < ApplicationController
             @user.save 
             redirect_to login_path
         else 
-            render :new 
+            render :new
         end 
     end 
 
