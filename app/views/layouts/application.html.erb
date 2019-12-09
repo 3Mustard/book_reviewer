@@ -11,12 +11,15 @@
   
   <body>
     <div class="all">
-
+    
       <div class="navbar">
         <%= image_tag('book.jpg') %><br>
         <%= link_to 'Log Out', logout_path, method: :delete %>
-        <%= render partial: 'reviews/reviews_link' %>
+        <% if session[:user_id] %>
+          <%= link_to "Reviews", reviews_path  %>
+        <%end%>
       </div>
+
 
       <%= yield %>
       
