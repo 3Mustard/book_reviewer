@@ -16,12 +16,13 @@ class ReviewsController < ApplicationController
     def create 
         #create a review with a book_id for the current user 
         @review = current_user.reviews.build(review_params)
-
-        if @review.valid? 
-            @review.save 
-            redirect_to book_path(@review.book_id)
-        else 
-            render :new 
+        if current_user.id == @review.user_id 
+            if @review.valid? 
+                @review.save 
+                redirect_to book_path(@review.book_id)
+            else 
+                render :new 
+            end 
         end 
     end 
 

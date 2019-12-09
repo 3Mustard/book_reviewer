@@ -7,9 +7,9 @@ class SessionsController < ActionController::Base
     end 
 
     def create 
-        #binding.pry
+        binding.pry
         @user = User.find_by(username: params[:user][:username])
-        #raise @user.inspect
+    
         if @user && @user.authenticate(params[:user][:password])
             session[:user_id] = @user.id
             redirect_to books_path
@@ -23,4 +23,10 @@ class SessionsController < ActionController::Base
         session.delete(:user_id)
         redirect_to '/'
     end 
+
+    private 
+
+    def auth_hash
+        request.env['omniauth.auth']
+    end
 end

@@ -9,4 +9,13 @@ class User < ApplicationRecord
     def total_reviews 
         self.books.count 
     end 
+
+    def self.create_with_omniauth(auth)
+        create! do |user|
+          user.provider = auth["provider"]
+          user.uid = auth["uid"]
+          user.name = auth["info"]["name"] #sets name, check params for auth value
+        end
+    end
+
 end
