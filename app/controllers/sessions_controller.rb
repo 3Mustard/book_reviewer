@@ -1,8 +1,8 @@
 class SessionsController < ApplicationController
 
     def home 
-        if user_signed_in?
-            redirect_to books_path
+        if session[:user_id]
+            redirect_to '/books'
         end 
     end
 
