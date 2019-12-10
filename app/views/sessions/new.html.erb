@@ -1,13 +1,14 @@
+<%= image_tag('home.jpg') %>
 <p>Please login to continue</p>
 <%= flash[:error] %>
 <div>
     <%= form_for :user do |f| %>
-        <div>
+        <div class="field<%= ' field_with_errors' if flash[:error] %>">
             <%= f.label :username %>
             <%= f.text_field :username %>
         </div>
         <br>
-        <div>
+        <div class="field<%= ' field_with_errors' if flash[:error] %>">
             <%= f.label :password %> 
             <%= f.password_field :password %>
         </div>
@@ -15,3 +16,5 @@
         <%= f.submit "Submit" %> 
     <%end%>
 </div> 
+<br>
+<%= link_to "home", '/' %>

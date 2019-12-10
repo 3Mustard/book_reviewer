@@ -1,3 +1,4 @@
+<%= image_tag('home.jpg') %>
 Sign up 
 <br> 
 
@@ -11,10 +12,10 @@ Sign up
     </ul>
   </div>
 <% end %>
-
+ 
 <div>
     <%= form_for @user do |f| %>
-        <div>
+        <div class="field<%= ' field_with_errors' if @user.errors[:username].any? %>">
             <%= f.label :username %>
             <%= f.text_field :username %>
         </div>
@@ -27,3 +28,5 @@ Sign up
         <%= f.submit "Submit" %> 
     <%end%>
 </div>
+<br>
+<%= link_to "home", '/' %>

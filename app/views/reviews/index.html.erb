@@ -1,6 +1,8 @@
-these are all your reviews <%= current_user.username %><br>
+<h3><%= current_user.username %>'s Reviews</h3>
 
 <% current_user.reviews.each do |review| %>
-    <%= link_to "#{review.book.title}", book_path(review.book) %><br>
+    - <%= link_to "#{review.book.title}", book_path(review.book) %><br>
 <%end%>
+<br>
+<br>
 <%= link_to "<< back to index", books_path %>
