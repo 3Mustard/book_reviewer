@@ -1,5 +1,5 @@
 <%= image_tag('home.jpg') %>
-Sign up 
+<p>Sign up</p> 
 <br> 
 
 <% if @user.errors.any? %>
@@ -13,20 +13,25 @@ Sign up
   </div>
 <% end %>
  
-<div>
-    <%= form_for @user do |f| %>
-        <div class="field<%= ' field_with_errors' if @user.errors[:username].any? %>">
-            <%= f.label :username %>
-            <%= f.text_field :username %>
-        </div>
-        <br>
-        <div>
-            <%= f.label :password %> 
-            <%= f.password_field :password %>
-        </div>
-        <br>
-        <%= f.submit "Submit" %> 
-    <%end%>
+<%= form_for @user do |f| %>
+
+  <div class="field<%= ' field_with_errors' if @user.errors[:username].any? %>">
+    <%= f.label :username %>
+    <%= f.text_field :username %>
+  </div>
+
+  <br>
+
+  <div>
+    <%= f.label :password %> 
+    <%= f.password_field :password %>
+  </div>
+
+  <br>
+
+  <%= f.submit "Submit" %> 
+<%end%>
+
 </div>
 <br>
 <%= link_to "home", '/' %>

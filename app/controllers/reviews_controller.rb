@@ -1,11 +1,11 @@
 class ReviewsController < ApplicationController
+    before_action :current_review, only: [:show,:edit,:update]
 
     def index 
         @reviews = Review.all 
     end 
 
     def show 
-        current_review
     end 
 
     def new
@@ -27,11 +27,9 @@ class ReviewsController < ApplicationController
     end 
 
     def edit
-        current_review 
     end 
 
     def update
-        current_review
         if @review.update(review_params)
             redirect_to book_path(@review.book_id)
         else 

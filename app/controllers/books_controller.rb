@@ -1,7 +1,7 @@
 class BooksController < ApplicationController
 
     def index 
-        #handles a get request from the index view to return a book object by name
+        #handles a get request from the index view to return a book or author by name
         if params[:search]
             @book = Book.try(:find_by, title: params[:search])
             @author = Author.try(:find_by, name: params[:search])

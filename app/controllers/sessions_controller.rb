@@ -1,6 +1,9 @@
 class SessionsController < ApplicationController
 
     def home 
+        if user_signed_in?
+            redirect_to books_path
+        end 
     end
 
     def new
@@ -22,10 +25,4 @@ class SessionsController < ApplicationController
         session.delete(:user_id)
         redirect_to '/'
     end 
-
-    private 
-
-    # def auth_hash
-    #     request.env['omniauth.auth']
-    # end
 end
