@@ -22,11 +22,20 @@ class SessionsController < ApplicationController
     end  
 
     def omniauth 
-        raise params.inspect
+        @user = User.create_by_google_omniauth(auth) 
+
+        session[:user_id] = @user.id
+        redirect_to books_path 
     end 
 
     def destroy 
         session.delete(:user_id)
         redirect_to '/'
+    end 
+
+    private 
+
+    def auth
+        request.env['omniauth.auth']
     end 
 end

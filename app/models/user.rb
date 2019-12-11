@@ -11,12 +11,11 @@ class User < ApplicationRecord
         self.books.count 
     end 
 
-    def self.create_with_omniauth(auth)
-        create! do |user|
-          user.provider = auth["provider"]
-          user.uid = auth["uid"]
-          user.name = auth["info"]["name"] #sets name, check params for auth value
+    def self.create_by_google_omniauth(auth)
+        self.find_or_create_by(username: auth[:info][:email]) do |u|
+            u.email = auth[:info][:email]
+            u.password = SecureRandom.hex #generates a random number 
         end
-    end
+    end 
 
 end

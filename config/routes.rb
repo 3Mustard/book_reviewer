@@ -11,7 +11,6 @@ Rails.application.routes.draw do
   delete '/logout' => 'sessions#destroy'
 
   #omniauth
-  # get '/auth/github', :as => 'github_login'
   get '/auth/google_oauth2/callback' => 'sessions#omniauth'
 
   ##resources
