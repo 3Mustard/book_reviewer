@@ -1,24 +1,22 @@
 # README
+## Book Reviewer
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Write reviews for books and discover more books to read
 
-Things you may want to cover:
+## Installation
 
-* Ruby version
+run bundle install to install required gems.
+run rails s to start a server
 
-* System dependencies
+## Roadmap
 
-* Configuration
+-leave comments on book show pages
+-browser the reviews of other users
 
-* Database creation
+## Contributing
 
-* Database initialization
+Please contact 3Mustard@github
 
-* How to run the test suite
+## License
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+This code is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
