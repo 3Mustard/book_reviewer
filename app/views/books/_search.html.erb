@@ -1,6 +1,6 @@
 <%= form_tag(books_path, method: :get) do %>
     <p>Search for a book by title or author</p> 
-    <%= text_field_tag :search, params[:search] %>
+    <%= text_field_tag :search, params[:search], class: 'form-control'  %>
     <%= submit_tag 'Search', name: nil %>
 <% end %>
 

@@ -14,22 +14,22 @@
 <%= form_for(@book) do |f| %> 
     <div class="field<%= ' field_with_errors' if @book.errors[:name].any? %>">
         <%= f.label :title %><br>
-        <%= f.text_field :title, :value => @book.title %> 
+        <%= f.text_field :title, :value => @book.title, class: 'form-control'  %> 
     </div>
     <br>
     <div class="field<%= ' field_with_errors' if @book.errors[:genre].any? %>">
         <%= f.label :genre %><br>
-        <%= f.text_field :genre, :value => @book.genre %> 
+        <%= f.text_field :genre, :value => @book.genre, class: 'form-control'  %> 
     </div>
     <br>
     <div>
-        <%= f.collection_select :author_id, Author.all, :id, :name, include_blank: "Select the author" %>
+        <%= f.collection_select :author_id, Author.all, :id, :name, include_blank: "Select the author", class: 'form-control'  %>
     </div>
     <br>
     <%= f.fields_for :author do |a| %>
         <div>
             <%= a.label :name, "Or add a new Author" %><br>
-            <%= a.text_field :name %>
+            <%= a.text_field :name, class: 'form-control'  %>
         </div>   
     <%end%>
     <br>

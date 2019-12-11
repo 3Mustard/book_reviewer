@@ -12,11 +12,11 @@
 <%= form_for(@review) do |f| %>
     <div>
         <%= f.label :rating %>
-        <%= f.number_field :rating, min:1, max:10 %>
+        <%= f.number_field :rating, min:1, max:10, class: 'form-control'  %>
     </div>
     
     <div>
-        <%= f.text_area :content, size: "100x25"  %>
+        <%= f.text_area :content, size: "100x25", class: 'form-control'   %>
     </div>
 
     <%= f.hidden_field :book_id %>

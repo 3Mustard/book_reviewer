@@ -9,14 +9,14 @@
 
             <div class="field<%= ' field_with_errors' if flash[:error] %>">
                 <%= f.label :username %>
-                <%= f.text_field :username %>
+                <%= f.text_field :username, class: 'form-control'  %>
             </div>
 
             <br>
 
             <div class="field<%= ' field_with_errors' if flash[:error] %>">
                 <%= f.label :password %> 
-                <%= f.password_field :password %>
+                <%= f.password_field :password, class: 'form-control'  %>
             </div>
 
             <br>
