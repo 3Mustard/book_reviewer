@@ -12,7 +12,7 @@ Rails.application.routes.draw do
 
   #omniauth
   # get '/auth/github', :as => 'github_login'
-  # get '/auth/github/callback' => 'sessions#create'
+  get '/auth/google_oauth2/callback' => 'sessions#omniauth'
 
   ##resources
 
