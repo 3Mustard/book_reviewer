@@ -1,6 +1,7 @@
 class ReviewsController < ApplicationController
     before_action :current_review, only: [:show,:edit,:update]
 
+    #index of a users reviews
     def index 
         @reviews = Review.all 
     end 
@@ -30,11 +31,19 @@ class ReviewsController < ApplicationController
     end 
 
     def update
-        if @review.update(review_params)
+        if review_belongs_to_user? && @review.update(review_params)
             redirect_to book_path(@review.book_id)
         else 
             render :edit 
         end 
+    end 
+
+    def destroy
+        @review = Review.find(params[:id])
+        if review_belongs_to_user?
+            @review.destroy 
+            redirect_to reviews_path
+        end  
     end 
 
     private 
@@ -42,6 +51,10 @@ class ReviewsController < ApplicationController
     def current_review 
         @review = Review.find(params[:id])
     end
+
+    def review_belongs_to_user?
+        @review.user_id == current_user.id
+    end 
 
     def review_params
         params.require(:review).permit(:rating, :content, :book_id)
