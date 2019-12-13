@@ -3,7 +3,7 @@
     <h2>There were some errors:</h2>
     <ul>
       <% @review.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+        <li style="list-style-type: none;"><%= message %></li>
       <% end %>
     </ul>
   </div>
