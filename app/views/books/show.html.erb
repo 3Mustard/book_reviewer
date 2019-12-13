@@ -1,17 +1,24 @@
+<h3>All reviews for</h3>
 <h3><%= @book.title %></h3>
 <% if @book.author != nil %>
-        by - <%= link_to "#{@book.author.name}", author_path(@book.author) %>
-<%end%>
-<br>
-<br>
+    by - <%= link_to "#{@book.author.name}", author_path(@book.author) %>
+<%end%><br><br>
 
 <% if @review != nil %>
-    Rating: <%= @review.rating %><br><br>
-    <%= @review.content %><br><br><br>
-    <%= link_to "Edit Review", edit_review_path(@review) %>
-<%else%>
-    <%= link_to "Add a Review", new_book_review_path(@book) %>
+    <h4><%= @review.rating %>/10 - You said</h4>
+    <p><%= @review.content %></p><br>  
 <%end%>
-<br>
+
+<% @book.reviews.each do |review| %>
+    <% if review.user != current_user %>
+        <h4><%= review.rating %>/10 - <%= review.user.username %> said</h4>
+        <p><%= review.content %></p><br> 
+    <%end%>    
+<%end%><br>
 
 <%= link_to "<< back to index", books_path %>
+<% if @review != nil %>
+    <%= link_to "- Edit Review", edit_review_path(@review) %>
+<%else%> 
+    <%= link_to "- Add a Review", new_book_review_path(@book) %>
+<%end%>
