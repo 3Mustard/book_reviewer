@@ -2,8 +2,9 @@
 <h3><%= @book.title %></h3>
 <% if @book.author != nil %>
     by - <%= link_to "#{@book.author.name}", author_path(@book.author) %>
-<%end%><br><br>
-
+<%end%>
+<br>
+<br>
 <% if @review != nil %>
     <h4><%= @review.rating %>/10 - You said</h4>
     <p><%= @review.content %></p><br>  
@@ -16,7 +17,7 @@
     <%end%>    
 <%end%><br>
 
-<%= link_to "<< back to index", books_path %>
+<%= index_link %> 
 <% if @review != nil %>
     <%= link_to "- Edit Review", edit_review_path(@review) %>
 <%else%> 

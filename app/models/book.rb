@@ -3,10 +3,10 @@ class Book < ApplicationRecord
     has_many :reviews #book.reviews
     has_many :users, through: :reviews #book.users??
 
-    #validations
+    ##validations 
     validates :title, uniqueness: true, presence: true 
 
-    #nested resources
+    ##nested resources
     accepts_nested_attributes_for :author 
 
     def author_attributes=(author_attributes)

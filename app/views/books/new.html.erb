@@ -5,7 +5,7 @@
     <h2>There were some errors:</h2>
     <ul>
       <% @book.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+        <li style="list-style-type: none;"><%= message %></li>
       <% end %>
     </ul>
   </div>
@@ -38,4 +38,4 @@
 <%end%>
 <br>
 
-<%= link_to "<< back to index", books_path %>
+<%= index_link %> 
