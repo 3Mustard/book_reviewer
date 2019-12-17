@@ -12,6 +12,9 @@ Rails.application.routes.draw do
 
   #omniauth
   get '/auth/google_oauth2/callback' => 'sessions#omniauth'
+
+  ##custom features
+  get '/books/recently_added' => 'books#recently_added'
   
   #needed for path book/review/new or edit 
   resources :books do 

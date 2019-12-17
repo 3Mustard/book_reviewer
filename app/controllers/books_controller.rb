@@ -30,6 +30,10 @@ class BooksController < ApplicationController
         end 
     end  
 
+    def recently_added
+        @books = Book.recently_added
+    end 
+
     private 
     
     def book_params 

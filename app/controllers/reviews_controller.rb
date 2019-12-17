@@ -1,5 +1,6 @@
 class ReviewsController < ApplicationController
     before_action :current_review, only: [:show,:edit,:update]
+    rescue_from ActiveRecord::RecordNotFound, with: :handle_record_not_found
 
     #index of a users reviews
     def index 
@@ -46,6 +47,10 @@ class ReviewsController < ApplicationController
     end 
 
     private 
+
+    def handle_record_not_found 
+        redirect_to books_path
+    end 
 
     def current_review 
         @review = Review.find(params[:id])

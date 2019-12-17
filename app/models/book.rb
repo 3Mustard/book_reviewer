@@ -14,4 +14,8 @@ class Book < ApplicationRecord
             self.build_author(name: author_attributes[:name])
         end 
     end 
+
+    def self.recently_added
+        order(created_at: :desc).limit(10)
+    end 
 end

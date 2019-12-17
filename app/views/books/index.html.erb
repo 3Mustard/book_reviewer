@@ -5,4 +5,4 @@ Total Reviews - <%= current_user.total_reviews %></p>
 <%= render partial: 'search' %>
 
 <h3>Can't find the book you're looking for?</h3>
-<%= link_to 'Add a book to the library', new_book_path %> 
+<%= link_to 'Add a book to the library', new_book_path %> - <%= link_to "recently added books", books_recently_added_path %>
